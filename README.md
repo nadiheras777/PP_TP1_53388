@@ -18,6 +18,22 @@ El sistema permite:
 - Llevar un contador de la cantidad de eventos creados.
 
 -------------------------------------------------------------------------------------------
+Configuración inicial
+Para clonar el proyecto y poder ejecutarlo localmente:
+
+Crear o seleccionar una carpeta donde se quiera guardar el proyecto.
+
+Abrir una terminal dentro de esa carpeta.
+
+Ejecutar el siguiente comando:
+
+git clone https://github.com/nadiheras777/PP_TP1_53388.git
+Ingresar a la carpeta del proyecto:
+cd PP_TP1_53388
+Abrir el proyecto desde IntelliJ IDEA.
+Una vez abierto el proyecto en IntelliJ IDEA:
+Buscar la clase App.java.
+Ejecutar el método main.
 
 Estructura del proyecto
 
