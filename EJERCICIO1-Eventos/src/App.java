@@ -101,7 +101,7 @@ public class App {
                     while (continuarInscripcion) {
                         System.out.print("Ingrese el legajo del estudiante a inscribir: ");
                         String legajoBuscado = scanner.nextLine().trim();
-                        System.out.print("Ingrese el ID de la actividad (ej: 1, 2...): ");
+                        System.out.print("Ingrese el numero de la actividad (ej: 1, 2...): ");
                         int idActBuscada = scanner.nextInt();
                         scanner.nextLine(); // Limpiar buffer
 
