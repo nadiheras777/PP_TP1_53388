@@ -51,7 +51,7 @@ Primero se solicita al usuario la información de los estudiantes:
 Cada estudiante se representa mediante un objeto de la clase Estudiante.
 Los objetos creados se almacenan en una lista.
 
-![RegistroEstudiantes](images/RegistroAlumno.png)
+![RegistroEstudiantes](./images/RegistroAlumno.png)
 
 2. Registro del evento
 
@@ -61,7 +61,7 @@ Luego se solicita al usuario informar la informacion del evento:
 - Costo para los participantes.
 - Asignacion de sala donde se realiza el evento.
 
-![RegistroEvento](images/RegistroEvento.png)
+![RegistroEvento](./images/RegistroEvento.png)
 
 
 3. Registro de actividades
@@ -74,7 +74,7 @@ Asignando a cada caso su correspondiente costo e información.
     - En el caso de elegir taller, se pregunta si va a ser necesario el uso de NoteBook.
 - Nombre de la charla/taller.
 
-![RegistroActividad](images/RegistroActividad.png)
+![RegistroActividad](./images/RegistroActividad.png)
 
 4. Inscripción de estudiantes
 
@@ -82,7 +82,7 @@ Se insriben los estudiantes registrados anteriormente que deseen participar del 
 - Legajo de estudiante a inscribir.
 - Actividad del evento a la que se desea inscribir.
 
-![InscripcionEstudiante](images/InscripcionEstudiante.png)
+![InscripcionEstudiante](./images/InscripcionEstudiante.png)
 
 5. Datos del evento registrado
 
@@ -95,10 +95,10 @@ Se muestran los siguientes datos acerca del evento creado:
     - Nombre de la actividad.
     - Inscripciones registradas.
 
-![DatosEvento](images/DatosEvento.png)
+![DatosEvento](./images/DatosEvento.png)
 
 6. Total eventos creados
 
 El programa finaliza mostrando la cantidad de eventos creados.
 
-![CantidadEventos](images/CantidadEventosCreados.png)
+![CantidadEventos](./images/CantidadEventosCreados.png)
