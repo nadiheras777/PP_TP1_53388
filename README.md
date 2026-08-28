@@ -19,21 +19,36 @@ El sistema permite:
 
 -------------------------------------------------------------------------------------------
 Configuración inicial
-Para clonar el proyecto y poder ejecutarlo localmente:
 
-Crear o seleccionar una carpeta donde se quiera guardar el proyecto.
+Para clonar el proyecto y ejecutarlo localmente, seguí los siguientes pasos.
 
-Abrir una terminal dentro de esa carpeta.
+1. Clonar el repositorio
 
-Ejecutar el siguiente comando:
+Creá o seleccioná una carpeta donde quieras guardar el proyecto.
+
+Luego, abrí una terminal dentro de esa carpeta y ejecutá el siguiente comando:
 
 git clone https://github.com/nadiheras777/PP_TP1_53388.git
-Ingresar a la carpeta del proyecto:
+
+2. Ingresar al proyecto
+
+Una vez finalizada la clonación, ingresá a la carpeta del proyecto:
+
 cd PP_TP1_53388
-Abrir el proyecto desde IntelliJ IDEA.
-Una vez abierto el proyecto en IntelliJ IDEA:
-Buscar la clase App.java.
-Ejecutar el método main.
+
+3. Abrir el proyecto en IntelliJ IDEA
+
+Abrí la carpeta del proyecto PP_TP1_53388 utilizando IntelliJ IDEA.
+
+Una vez abierto el proyecto:
+
+Buscá la clase App.java.
+Abrí el archivo.
+Localizá el método main.
+Ejecutá el método main para iniciar la aplicación.
+Ejecución
+
+Si la configuración se realizó correctamente, el proyecto debería ejecutarse desde IntelliJ IDEA sin inconvenientes.
 
 Estructura del proyecto
 
