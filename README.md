@@ -9,9 +9,9 @@ El sistema permite:
 - Registrar estudiantes.
 - Crear eventos universitarios.
 - Asignar una sala a cada evento.
-- Crear modelo.actividades asociadas a los eventos.
-- Crear distintos tipos de modelo.actividades: `Charla` y `Taller`.
-- Inscribir estudiantes en las modelo.actividades.
+- Crear actividades asociadas a los eventos.
+- Crear distintos tipos de actividades: `Charla` y `Taller`.
+- Inscribir estudiantes en las actividades.
 - Consultar las inscripciones realizadas.
 - Calcular el costo estimado de un evento.
 - Crear copias de eventos mediante un constructor de copia.
@@ -55,13 +55,13 @@ Estructura del proyecto
 El proyecto está compuesto por las siguientes clases:
 
 - App
-- modelo.EventoUniversitario
-- modelo.Sala
-- modelo.actividades.Actividad
-- modelo.actividades.Charla
-- modelo.actividades.Taller
-- modelo.Estudiante
-- modelo.Inscripcion
+- EventoUniversitario
+- Sala
+- Actividad
+- Charla
+- Taller
+- Estudiante
+- Inscripcion
 
 -------------------------------------------------------------------------------------------
 
@@ -79,7 +79,7 @@ Primero se solicita al usuario la información de los estudiantes:
 - Legajo.
 - Nombre y apellido.
 
-Cada estudiante se representa mediante un objeto de la clase modelo.Estudiante.
+Cada estudiante se representa mediante un objeto de la clase Estudiante.
 Los objetos creados se almacenan en una lista.
 
 ![RegistroEstudiantes](./images/RegistroAlumno.png)
@@ -95,13 +95,13 @@ Luego se solicita al usuario informar la informacion del evento:
 ![RegistroEvento](./images/RegistroEvento.png)
 
 
-3. Registro de modelo.actividades
+3. Registro de actividades
 
-Luego permite ingresar las modelo.actividades del evento, diferenciando si se trata de una "modelo.actividades.Charla" o de un "modelo.actividades.Taller".
+Luego permite ingresar las actividades del evento, diferenciando si se trata de una "Charla" o de un "Taller".
 Asignando a cada caso su correspondiente costo e información.
 - Titulo de la actividad.
 - Cupo maximo de estudiantes.
-- Tipo de actividad (modelo.actividades.Charla o taller).
+- Tipo de actividad (Charla o taller).
     - En el caso de elegir taller, se pregunta si va a ser necesario el uso de NoteBook.
 - Nombre de la charla/taller.
 
@@ -111,7 +111,7 @@ Asignando a cada caso su correspondiente costo e información.
 
 Se insriben los estudiantes registrados anteriormente que deseen participar del evento, solicitando la siguiente informacion:
 - Legajo de estudiante a inscribir.
-- modelo.actividades.Actividad del evento a la que se desea inscribir.
+- Actividad del evento a la que se desea inscribir.
 
 ![InscripcionEstudiante](./images/InscripcionEstudiante.png)
 
@@ -121,7 +121,7 @@ Se muestran los siguientes datos acerca del evento creado:
 - Id del evento.
 - Titulo.
 - Costo.
-- modelo.Sala asignada.
+- Sala asignada.
 - Actividades registradas.
     - Nombre de la actividad.
     - Inscripciones registradas.
@@ -133,6 +133,3 @@ Se muestran los siguientes datos acerca del evento creado:
 El programa finaliza mostrando la cantidad de eventos creados.
 
 ![CantidadEventos](./images/CantidadEventosCreados.png)
-
-EJERCICIO 4
-![Ejercicio4](images/ejercicio4.png)

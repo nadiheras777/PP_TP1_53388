@@ -1,16 +1,10 @@
-package modelo.actividades;
-
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
-import excepciones.CupoExcedidoException;
-import modelo.Inscripcion;
-import modelo.Estudiante;
+import java.time.LocalDate;
 
 
-public abstract class Actividad implements Serializable {
+public abstract class Actividad {
     private int id;
     private String titulo;
     private int cupoMaximo;
@@ -32,11 +26,8 @@ public abstract class Actividad implements Serializable {
     }
 
 
-    public Inscripcion inscribir(Estudiante estudiante) throws CupoExcedidoException{
-        if (inscripciones.size() >= cupoMaximo) {
-            throw new CupoExcedidoException( "No se puede realizar la inscripcion porque se alcanzo el cupo maximo de la actividad.");
-        }
-        Inscripcion inscripcion = new Inscripcion(LocalDate.now(),"REGISTRADA", estudiante, this);
+    public Inscripcion inscribir(Estudiante estudiante) {
+        Inscripcion inscripcion = new Inscripcion(LocalDate.now(), "REGISTRADA", estudiante, this);
         inscripciones.add(inscripcion);
         return inscripcion;
     }
@@ -93,5 +84,8 @@ public abstract class Actividad implements Serializable {
     public abstract double calcularCostoMateriales();
 
     public abstract String getTipo();
+
+
+
 
 }
