@@ -1,4 +1,8 @@
-public class Charla extends Actividad {
+package modelo.actividades;
+
+import java.io.Serializable;
+
+public class Charla extends Actividad implements Serializable {
     private String disertante;
 
     public Charla(int id, String titulo, String disertante, int cupo) {

@@ -1,9 +1,19 @@
+package modelo;
+
+import java.io.*;
 import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class EventoUniversitario {
+import modelo.actividades.Actividad;
+import modelo.actividades.Charla;
+import modelo.actividades.Taller;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import modelo.actividades.Curso;
+
+public class EventoUniversitario implements Serializable {
     private final String id;
     private String titulo;
     private double costoBase;
@@ -14,7 +24,7 @@ public class EventoUniversitario {
 
     static {
         cantidadEventos = 0;
-        System.out.println("Inicializador estatico: Se cargo la clase EventoUniversitario. ");
+        System.out.println("Inicializador estatico: Se cargo la clase modelo.EventoUniversitario. ");
     }
 
     public EventoUniversitario(String id, String nombre, double costo, boolean esGratuito) {
@@ -88,6 +98,14 @@ public class EventoUniversitario {
                 Actividad taller = new Taller(id, titulo, requiereNotebook, cupo);
                 this.actividades.add(taller);
                 break;
+            case "curso":
+                System.out.print("Ingrese el nivel del curso: ");
+                int nivel = scanner.nextInt();
+                scanner.nextLine();
+
+                Actividad curso = new Curso(id, titulo, nivel, cupo);
+                this.actividades.add(curso);
+                break;
             default:
                 System.out.print("Error: tipo de actividad no reconocido");
         }
@@ -95,6 +113,28 @@ public class EventoUniversitario {
 
     public List<Actividad> getActividades() {
         return Collections.unmodifiableList(actividades);
+    }
+    public <T extends Actividad> List<T> filtrarActividadesPorTipo(Class<T> tipo) {
+
+        List<T> resultado = new ArrayList<>();
+
+        for (Actividad actividad : actividades) {
+
+            if (tipo.isInstance(actividad)) {
+                resultado.add(tipo.cast(actividad));
+            }
+        }
+
+        return resultado;
+    }
+    public double calcularCostoMateriales(List<? extends Actividad> actividades) {
+        double total = 0.0;
+
+        for (Actividad actividad : actividades) {
+            total += actividad.calcularCostoMateriales();
+        }
+
+        return total;
     }
 
     public void mostrarDatos() {
@@ -117,4 +157,64 @@ public class EventoUniversitario {
     public static int getCantidadEventos() {
         return cantidadEventos;
     }
-}
+
+    public boolean persistirEvento() {
+        // para que los datos no se pierdan cuando cerramos el programa
+        ObjectOutputStream salida = null;
+        // nos permite escribir objetos Java en un archivo
+        try {
+            //try por si ocurre un error lo  puedo capturar
+            FileOutputStream archivo = new FileOutputStream("evento.dat");
+            //creamos el archivo
+            salida = new ObjectOutputStream(archivo);
+            //conectamos el ObjectOutputStream con el archivo
+            salida.writeObject(this);
+
+            return true;
+            /* todo salio bien se guardo */
+
+        } catch (IOException e) {
+            System.out.println("Error al guardar el evento: " + e.getMessage());
+            return false;
+            //no se logra guardar
+
+        } finally {
+            if (salida != null) {
+                try {
+                    salida.close();
+                } catch (IOException e) {
+                    System.out.println("Error al cerrar el archivo: " + e.getMessage());
+                    //por si al cerrarse ocurre un error
+                }
+            }
+        }
+    }
+
+        public static EventoUniversitario recuperarEvento(String id) {
+            ObjectInputStream entrada = null;
+            try {
+                FileInputStream archivo = new FileInputStream(id);
+                //usamos ese id como nombre de archivo
+                entrada = new ObjectInputStream(archivo);
+
+                EventoUniversitario evento = (EventoUniversitario) entrada.readObject();
+                //Lee el objeto que estaba guardando
+                return evento;
+            } catch (IOException e) {
+                System.out.println("Error al recuperar el evento: " + e.getMessage());
+                return null;
+            } catch (ClassNotFoundException e) {
+                System.out.println("No se encontro la clase del evento.");
+                return null;
+            } finally {
+                if(entrada != null) {
+                    try {
+                        entrada.close();
+                    } catch (IOException e) {
+                        System.out.println("Error al cerrar el archivo: " + e.getMessage());
+                    }
+                }
+            }
+        }
+    }
+
